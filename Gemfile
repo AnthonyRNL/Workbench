@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'pry-rails'
 
+gem 'bcrypt'
+gem 'rename'
 gem 'react-rails', '~> 1.4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'

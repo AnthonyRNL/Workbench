@@ -1,2 +1,11 @@
 
-<%= react_component('Project', @projects) %>
+<h1>All Projects</h1>
+<div id="container"></div>
+
+
+<script>
+ReactDOM.render(
+  React.createElement(Project, {url:"/api/v1/projects", pollInterval: 2000}),
+  document.getElementById('container')
+)
+</script>

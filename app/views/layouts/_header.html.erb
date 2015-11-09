@@ -1,0 +1,16 @@
+<nav>
+  <ul>
+
+    <li>Hello <%= User.find(session[:user_id]).name if session[:user_id] %></li>
+    <% if !session[:user_id] %>
+      <li><%= link_to "Login!", login_path %></li>
+    <% else %>
+      <li><%= link_to "Profile", user_path(session[:user_id]) %></li>
+    <% end%>
+    <li><%= link_to "Signup!!", signup_path %></li>
+    <li><%= link_to "Logout :(", logout_path %></li>
+
+
+  </ul>
+
+</nav>
