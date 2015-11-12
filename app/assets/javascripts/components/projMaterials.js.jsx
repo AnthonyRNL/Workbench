@@ -1,8 +1,23 @@
 var ProjMaterials = React.createClass({
+  // getMaterials: function(){
+  //   $.ajax({
+  //     url: this.props.url,
+  //     dataType: "json",
+  //     success: function(data){
+  //       this.setState({data: data})
+  //     }.bind(this)
+  //   })
+  // },
+  // componentDidMount: function(){
+  //   this.getMaterials()
+  // },
+  // getInitialState: function(){
+  //   return {data:{}}
+  // },
   render: function(){
-      debugger
+    
     return (
-      <li></li>
+      <li>{this.props.material.name}</li>
     )
   }
 })

@@ -14,12 +14,12 @@ class Api::V1::UmaterialsController < ApplicationController
     render json: umaterial
   end
 
-  def update
-    umaterial = Umaterial.find(params[:id])
-    umaterial.update(umaterial_params)
-    render json: umaterial
-  end
-
+  # def update
+  #   umaterial = Umaterial.find(params[:id])
+  #   umaterial.update(umaterial_params)
+  #   render json: umaterial
+  # end
+  #
   def destroy
     Umaterial.find(params[:id]).destroy
     render json: 'deleted'

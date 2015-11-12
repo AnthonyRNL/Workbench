@@ -21,7 +21,7 @@ var UmaterialBox = React.createClass({
       type: 'POST',
       data: umaterial,
       success: function(data){
-        this.setState({data: data})
+        this.setState({data: newUmaterials})
       }.bind(this),
       error: function(xhr, status, err){
         console.error(this.props.url, status, err.toString())
@@ -30,10 +30,11 @@ var UmaterialBox = React.createClass({
   },
   handleDelete: function(umaterial){
     var umaterials = this.state.data
+
     var idx = umaterials.map(function(x){
       return x.id
     }).indexOf(umaterial.id)
-    umaterials.slice(idx,1)
+    umaterials.splice(idx,1)
     this.setState({data: umaterials})
     $.ajax({
       url: this.props.url + "/" + umaterial.id,
@@ -49,9 +50,8 @@ var UmaterialBox = React.createClass({
     return {data: []}
   },
 
-  componentDidMount: function(){
+  componentWillMount: function(){
     this.setDB()
-    setInterval(this.setDB, this.props.pollInterval)
   },
 
   render: function(){

@@ -1,6 +1,7 @@
 class Api::V1::PmaterialsController < ApplicationController
   def index
     pmaterials = Pmaterial.where(project_id: params[:project_id])
+    # pmaterials = Pmaterial.all
     render json: pmaterials
   end
 

@@ -1,6 +1,7 @@
 var UmaterialsList = React.createClass({
   deleteThis: function(e){
     e.preventDefault();
+    // debugger
     var id = this.props.id
     this.props.onDelete({id: id})
     return

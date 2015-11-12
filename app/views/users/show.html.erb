@@ -4,6 +4,7 @@
         this will show a bunch of <%= @user.name %>'s stuff
       </div>
       <div id="container"></div>
+      <div id="projects"></div>
   </body>
 <p></p>
   <%= link_to "Back Home", root_path %>
@@ -12,5 +13,10 @@
     ReactDOM.render(
       React.createElement(UmaterialBox, {url: "/api/v1/users/<%=@user.id%>/umaterials", pollInterval: 2000}),
       document.getElementById("container")
+    )
+
+    ReactDOM.render(
+      React.createElement(UserProjects,{url: "/api/v1/users/<%=@user.id%>/user_projects"}),
+      document.getElementById("projects")
     )
   </script>
