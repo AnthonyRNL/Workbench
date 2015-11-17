@@ -13,20 +13,46 @@ var ProjectDescName = React.createClass({
     })
   },
   getInitialState: function(){
-    return {materials: []}
+    return {
+      materials: [],
+      addedButtonText: "",
+      addButtonClass: ""
+    }
   },
   componentWillMount: function(){
     this.getMaterials()
+    this.checkProjectAdded()
+  },
+  checkProjectAdded: function(){
+    $.ajax({
+      url: "/api/v1/projects/" + this.props.project_id + "/user_projects",
+      dataType: 'json',
+      success: function(data){
+        var exists = false
+        data.forEach(function(x){
+          if(x.id === parseInt(this.props.user_id)){
+            this.setState({addedButtonText: "Project Added", addButtonClass: 'added'})
+            exists = true
+            return
+          }
+        }.bind(this))
+        if(!exists){
+          this.setState({addedButtonText: "Add to your projects", addButtonClass: "notAdded"})
+        }
+      }.bind(this)
+    })
   },
   addToUser: function(){
-    // debugger
     $.ajax({
       url: "/api/v1/projects/" + this.props.project_id + "/user_projects",
       dataType: 'json',
       data: this.props.project_id,
       type: "POST",
       success: function(){
-        $(this.getDOMNode()).find(".addProj").text("proj added")
+          $(this.getDOMNode()).find(".notAdded").removeClass("notAdded").addClass("added").text("Project Added")
+        }.bind(this),
+      error: function(xhr, status, err){
+        alert("please sign in")
       }.bind(this)
     })
 
@@ -40,7 +66,7 @@ var ProjectDescName = React.createClass({
     return (
       <div className="proj">
           <h3>{this.props.name}</h3>
-        <button className="addProj" onClick={this.addToUser}>Add to your projects</button>
+        <button className={this.state.addButtonClass} onClick={this.addToUser}>{this.state.addedButtonText}</button>
         <ProjDesc description={this.props.description}/>
         <ul>
         {materialNodes}

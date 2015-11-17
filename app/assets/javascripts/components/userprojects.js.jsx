@@ -17,9 +17,9 @@ var UserProjects = React.createClass({
   render: function(){
     var projectNodes = this.state.data.map(function(project, i){
       return(
-        <UserProjectList key={i} project_id={project.id} name={project.name} description={project.description}/>
+        <UserProjectList key={i} project_id={project.id} name={project.name} description={project.description} user_id={this.props.user_id}/>
       )
-    })
+    }.bind(this))
     return (
       <div className="Projects">
         <h1>Projects Saved</h1>

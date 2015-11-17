@@ -5,7 +5,7 @@
 
 <script>
 ReactDOM.render(
-  React.createElement(Project, {url:"/api/v1/projects", pollInterval: 2000}),
+  React.createElement(Project, {url:"/api/v1/projects", user: "<%=@user%>"}),
   document.getElementById('container')
 )
 </script>

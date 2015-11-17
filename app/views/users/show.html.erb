@@ -16,7 +16,7 @@
     )
 
     ReactDOM.render(
-      React.createElement(UserProjects,{url: "/api/v1/users/<%=@user.id%>/user_projects"}),
+      React.createElement(UserProjects,{url: "/api/v1/users/<%=@user.id%>/user_projects", user_id: <%=@user.id%>}),
       document.getElementById("projects")
     )
   </script>

@@ -40,7 +40,7 @@ var Project = React.createClass({
   render: function() {
     var projectNode = this.state.data.map(function(project, i){
       return (
-        <ProjectDescName url={this.props.url + "/" + (i + 1) + "/pmaterials"}  project_id={project.id} name={project.name} key={i} description={project.description}/>
+        <ProjectDescName url={this.props.url + "/" + (i + 1) + "/pmaterials"}  user_id={this.props.user} project_id={project.id} name={project.name} key={i} description={project.description}/>
 
       )
     }.bind(this))
