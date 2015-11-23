@@ -22,6 +22,7 @@ Rails.application.routes.draw do
         resources :umaterials
         resources :user_projects
       end
+      resources :materials
     end
   end
   # Example of regular route:

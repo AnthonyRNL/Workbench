@@ -9,9 +9,10 @@ var UmaterialsList = React.createClass({
   render: function(){
     return (
       <div className="myMaterials">
-        <h4>{this.props.name}</h4>
+        <div className="umaterialname"><b>{this.props.name}</b></div>
         <button onClick={this.deleteThis}>Delete</button>
         <Umaterial amount={this.props.amount} unit={this.props.unit}/>
+        <p></p>
       </div>
     )
   }

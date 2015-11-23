@@ -43,18 +43,20 @@ var ProjectDescName = React.createClass({
     })
   },
   addToUser: function(){
-    $.ajax({
-      url: "/api/v1/projects/" + this.props.project_id + "/user_projects",
-      dataType: 'json',
-      data: this.props.project_id,
-      type: "POST",
-      success: function(){
-          $(this.getDOMNode()).find(".notAdded").removeClass("notAdded").addClass("added").text("Project Added")
-        }.bind(this),
-      error: function(xhr, status, err){
-        alert("please sign in")
-      }.bind(this)
-    })
+    if($(ReactDOM.findDOMNode(this)).find(".notAdded").length > 0){
+      $.ajax({
+        url: "/api/v1/projects/" + this.props.project_id + "/user_projects",
+        dataType: 'json',
+        data: this.props.project_id,
+        type: "POST",
+        success: function(){
+            $(ReactDOM.findDOMNode(this)).find(".notAdded").removeClass("notAdded").addClass("added").text("Project Added")
+          }.bind(this),
+        error: function(xhr, status, err){
+          alert("please sign in")
+        }.bind(this)
+      })
+    }
 
   },
   render: function(){
