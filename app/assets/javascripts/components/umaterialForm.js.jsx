@@ -87,10 +87,6 @@ var UmaterialForm = React.createClass({
           <input type="text" placeholder="Unit" ref="unit"/>
           <input type="number" placeholder="Amount" ref="amount"/>
           <br></br>
-          Perishable:
-          <input type="radio" name="perishable" value="true"/> True
-          <input type="radio" name="perishable" value="false"/> False
-          <br></br>
           <input type="submit" value="Enter New Material" />
         </form>
       </div>
