@@ -9,7 +9,7 @@ class Api::V1::MaterialsController < ApplicationController
   end
 
   def create
-    materials = Material.create(paterial_params)
+    materials = Material.create(material_params)
     render json: materials
   end
 

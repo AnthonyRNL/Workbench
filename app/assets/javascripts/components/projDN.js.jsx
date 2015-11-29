@@ -31,13 +31,13 @@ var ProjectDescName = React.createClass({
         var exists = false
         data.forEach(function(x){
           if(x.id === parseInt(this.props.user_id)){
-            this.setState({addedButtonText: "Project Added", addButtonClass: 'added'})
+            this.setState({addedButtonText: "Project Added", addButtonClass: 'added waves-effect waves-light btn blue-grey darken-2'})
             exists = true
             return
           }
         }.bind(this))
         if(!exists){
-          this.setState({addedButtonText: "Add to your projects", addButtonClass: "notAdded"})
+          this.setState({addedButtonText: "Add to your projects", addButtonClass: "notAdded waves-effect waves-light btn brown lighten-2"})
         }
       }.bind(this)
     })
@@ -50,7 +50,7 @@ var ProjectDescName = React.createClass({
         data: this.props.project_id,
         type: "POST",
         success: function(){
-            $(ReactDOM.findDOMNode(this)).find(".notAdded").removeClass("notAdded").addClass("added").text("Project Added")
+            $(ReactDOM.findDOMNode(this)).find(".notAdded").removeClass("notAdded").addClass("added waves-effect waves-light btn blue-grey darken-2").text("Project Added")
           }.bind(this),
         error: function(xhr, status, err){
           alert("please sign in")

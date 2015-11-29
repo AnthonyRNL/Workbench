@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require materialize-sprockets
-//= require turbolinks
+//= require script
 //= require jquery-ui.min
+//= require materialize-sprockets
 //= require react
 //= require react_ujs
 //= require components

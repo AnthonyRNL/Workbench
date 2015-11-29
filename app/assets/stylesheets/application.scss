@@ -11,10 +11,16 @@
  * file per style scope.
  *
  *= require jquery-ui.min
+ *= require style
  *= require_tree .
  *= require_self
  */
 
  @import "materialize/components/color";
  $primary-color: color("blue-grey", "darken-2") !default;
+ $secondary-color: color("blue-grey", "lighten-2") !default;
+ $link-color: color("brown", "lighten-3") !default;
+ button:hover {
+   @extend .lighten-2;
+ }
  @import 'materialize';

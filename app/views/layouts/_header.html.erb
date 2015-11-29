@@ -1,16 +1,29 @@
+    <ul id="dropdownNav" class="dropdown-content">
+        <li><a href="/">All projects</a></li>
+        <li class="divider"></li>
+      <% if !session[:user_id] %>
+        <li><%= link_to "Login", login_path %></li>
+        <li class="divider"></li>
+      <% else %>
+        <li><%= link_to "#{User.find(session[:user_id]).name}'s Shit", user_path(session[:user_id]) %></li>
+        <li class="divider"></li>
+      <% end%>
+      <%if !user_signed_in?%>
+        <li><%= link_to "Register", signup_path %></li>
+        <li class="divider"></li>
+      <%end%>
+      <% if user_signed_in? %>
+        <li><%= link_to "Logout", logout_path %></li>
+        <li class="divider"></li>
+      <%end%>
+    </ul>
 <nav>
-  <ul>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo right">Workbench</a>
+    <ul>
+      <li><a class="dropdown-button" data-beloworigin="true" data-constrainwidth="false" href="#!" data-activates="dropdownNav"><i class="material-icons">list</i></a></li>
+    </ul>
+  </div>
 
-    <li>Hello <%= User.find(session[:user_id]).name if session[:user_id] %></li>
-    <% if !session[:user_id] %>
-      <li><%= link_to "Login!", login_path %></li>
-    <% else %>
-      <li><%= link_to "Profile", user_path(session[:user_id]) %></li>
-    <% end%>
-    <li><%= link_to "Signup!!", signup_path %></li>
-    <li><%= link_to "Logout :(", logout_path %></li>
-
-
-  </ul>
 
 </nav>

@@ -15,7 +15,8 @@ var Project = React.createClass({
   },
   submitProjectForm: function(project){
     var projects = this.state.data
-    var newProjects = projects.concat([project])
+    var newthing = {name: project.name, description: project.description}
+    var newProjects = projects.concat([{name: project.name, description: project.description}])
     this.setState({data: newProjects})
     $.ajax({
       url: this.props.url,
@@ -30,6 +31,21 @@ var Project = React.createClass({
       }.bind(this)
     })
   },
+  // addmaterial: function(material){
+  //   // debugger
+  //   $.ajax({
+  //     url: "/api/v1/materials",
+  //     dataType: 'json',
+  //     data: material,
+  //     type: 'POST',
+  //     success: function(data){
+  //       console.log("yes?")
+  //     },
+  //     error: function(xhr, status, err){
+  //       console.error("/api/v1/materials", status, err.toString())
+  //     }
+  //   })
+  // },
   getInitialState: function(){
     return {data:[]}
   },

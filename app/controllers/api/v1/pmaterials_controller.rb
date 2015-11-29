@@ -31,6 +31,6 @@ class Api::V1::PmaterialsController < ApplicationController
   end
 
   def pmaterial_params
-    params.permit(:name, :project_id, :unit, :amount)
+    params.permit(:project_id, :amount, :material_id)
   end
 end

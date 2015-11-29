@@ -73,13 +73,22 @@ var UmaterialForm = React.createClass({
 
       <div className="uMaterialForm">
         <div className="materialExist">
-          <form className="searchM" onSubmit={this.handleExistingSubmit}>
-            <input id="mName" type="text" placeholder="search materials" ref="mName"/>
-            <input id="mAmount" type="text" placeholder="Enter Amount" ref="mAmount"/>
-            <input id="mUnit" type="hidden" ref="mUnit"/>
-            <input id="mId" type="hidden" ref="mId"/>
-            <input type="submit" value="Add to your materials"/>
-          </form>
+          <div className="row">
+            <form className="col s12" id="searchM" onSubmit={this.handleExistingSubmit}>
+              <div className="row">
+                  <div className="input-field col s6">
+                    <input className="col s12" id="mName" type="search" ref="mName"/>
+                    <label htmlFor="mName"><i className="material-icons">search</i> Search Materials</label>
+                  </div>
+                  <div className="input-field col s12">
+                    <input className="col s6" id="mAmount" type="text" placeholder="Enter Amount" ref="mAmount"/>
+                  </div>
+                  <input id="mUnit" type="hidden" ref="mUnit"/>
+                  <input id="mId" type="hidden" ref="mId"/>
+                </div>
+              </form>
+              <button type="submit" form="searchM">Add to your materials</button>
+            </div>
           <button className="other" onClick={this.otherButt}> Other Material </button>
         </div>
         <form className="uOtherForm" onSubmit={this.handleSubmit} >
