@@ -19,7 +19,7 @@
           <li><%= link_to "Login", login_path %></li>
           <li class="divider"></li>
         <% else %>
-          <li><%= link_to "#{User.find(session[:user_id]).name}'s Shit", user_path(session[:user_id]) %></li>
+          <li><%= link_to "#{User.find(session[:user_id]).name}'s Profile", user_path(session[:user_id]) %></li>
           <li class="divider"></li>
         <% end%>
         <%if !user_signed_in?%>
