@@ -8,6 +8,7 @@ gem 'react-rails', '~> 1.4.0'
 gem 'materialize-sass'
 gem 'carrierwave'
 gem 'carrierwave-base64'
+gem 'rmagick'
 gem 'fog'
 gem "active_model_serializers", github: "rails-api/active_model_serializers"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

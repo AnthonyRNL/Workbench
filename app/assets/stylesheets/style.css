@@ -22,3 +22,17 @@
   margin-top: 7%;
   margin-left: 30%
 }
+
+.projcard {
+  margin:auto;
+  display:block;
+  max-width:200px;
+  max-height: 250px;
+  width:auto;
+  height:auto;
+}
+
+.proj {
+  max-width: 250px;
+  height: 400px;
+}

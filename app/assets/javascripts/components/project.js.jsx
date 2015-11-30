@@ -15,8 +15,8 @@ var Project = React.createClass({
   },
   submitProjectForm: function(project){
     var projects = this.state.data
-    var newthing = {name: project.name, description: project.description}
-    var newProjects = projects.concat([{name: project.name, description: project.description}])
+    // var newthing = {name: project.name, description: project.description, project_image: project.project_image}
+    var newProjects = projects.concat([{name: project.name, description: project.description, project_image: project.project_image}])
     this.setState({data: newProjects})
     $.ajax({
       url: this.props.url,
@@ -31,21 +31,6 @@ var Project = React.createClass({
       }.bind(this)
     })
   },
-  // addmaterial: function(material){
-  //   // debugger
-  //   $.ajax({
-  //     url: "/api/v1/materials",
-  //     dataType: 'json',
-  //     data: material,
-  //     type: 'POST',
-  //     success: function(data){
-  //       console.log("yes?")
-  //     },
-  //     error: function(xhr, status, err){
-  //       console.error("/api/v1/materials", status, err.toString())
-  //     }
-  //   })
-  // },
   getInitialState: function(){
     return {data:[]}
   },
@@ -56,14 +41,16 @@ var Project = React.createClass({
   render: function() {
     var projectNode = this.state.data.map(function(project, i){
       return (
-        <ProjectDescName url={this.props.url + "/" + (i + 1) + "/pmaterials"}  user_id={this.props.user} project_id={project.id} name={project.name} key={i} description={project.description}/>
+        <ProjectDescName url={this.props.url + "/" + (i + 1) + "/pmaterials"}  user_id={this.props.user} project_id={project.id} name={project.name} key={i} description={project.description} image={project.project_image.url}/>
 
       )
     }.bind(this))
     return (
       <div className="projectBox">
         <ProjectForm onProjectSubmit={this.submitProjectForm}/>
-        {projectNode}
+        <div className="row">
+          {projectNode}
+        </div>
       </div>
     );
   }

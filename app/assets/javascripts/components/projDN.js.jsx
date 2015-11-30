@@ -37,7 +37,7 @@ var ProjectDescName = React.createClass({
           }
         }.bind(this))
         if(!exists){
-          this.setState({addedButtonText: "Add to your projects", addButtonClass: "notAdded waves-effect waves-light btn brown lighten-2"})
+          this.setState({addedButtonText: "Add Project", addButtonClass: "notAdded waves-effect waves-light btn brown lighten-2"})
         }
       }.bind(this)
     })
@@ -66,13 +66,27 @@ var ProjectDescName = React.createClass({
       )
     })
     return (
-      <div className="proj">
-          <h3>{this.props.name}</h3>
-        <button className={this.state.addButtonClass} onClick={this.addToUser}>{this.state.addedButtonText}</button>
-        <ProjDesc description={this.props.description}/>
-        <ul>
-        {materialNodes}
-        </ul>
+      <div className="proj card col s4">
+        <div className="card-image waves-effect waves-block waves-light">
+          <img className="activator projcard center-align" src={this.props.image}/>
+        </div>
+        <div className="card-content">
+          <span className="card-title activator grey-text text-darken-4">{this.props.name}<i className="material-icons right">more_vert</i></span>
+          <p></p>
+          <button className={this.state.addButtonClass} onClick={this.addToUser}>{this.state.addedButtonText}</button>
+        </div>
+
+        <div className="card-reveal">
+          <span className="card-title">Description<i className="material-icons right">close</i></span>
+          <p></p>
+          <ProjDesc description={this.props.description}/>
+          <ul>
+          <li>
+            Materials:
+          </li>
+          {materialNodes}
+          </ul>
+        </div>
       </div>
 
     )
