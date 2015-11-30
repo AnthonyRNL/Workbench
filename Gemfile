@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-
+ruby '2.2.2'
 gem 'pry-rails'
-
+gem 'rails_12factor'
 gem 'bcrypt'
 gem 'rename'
 gem 'react-rails', '~> 1.4.0'
