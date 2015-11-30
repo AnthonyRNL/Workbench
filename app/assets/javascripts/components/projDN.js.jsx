@@ -81,10 +81,10 @@ var ProjectDescName = React.createClass({
           <p></p>
           <ProjDesc description={this.props.description}/>
           <ul>
-          <li>
-            Materials:
-          </li>
-          {materialNodes}
+            <li>
+              <div style={{"fontWeight":"bold"}}>Materials:</div>
+            </li>
+            {materialNodes}
           </ul>
         </div>
       </div>

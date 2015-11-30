@@ -17,14 +17,20 @@ var UserProjectList = React.createClass({
   render: function(){
     return(
 
-      <li className="userProject">
-        Name: {this.props.name}
-        <br></br>
-        Description: {this.props.description}
-        <br></br>
+      <div className="proj card col s4">
+        <div className="card-image waves-effect waves-block waves-ligh">
+          <img className="activator projcard center-align" src={this.props.image}/>
+        </div>
+        <div className="card-content">
+          <span className="card-title activator grey-text text-darken-4">{this.props.name}<i className="material-icons right">more_vert</i></span>
+        </div>
+        <div className="card-reveal">
+          <span className="card-title">Description<i className="material-icons right">close</i></span>
+          Description: {this.props.description}
+          <p></p>
           <UserProjectMaterials pmaterials={this.state.data} user_id={this.props.user_id}/>
-      <p></p>
-      </li>
+        </div>
+      </div>
     )
   }
 })

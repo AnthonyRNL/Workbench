@@ -28,26 +28,26 @@ var UmaterialBox = React.createClass({
       }.bind(this)
     })
   },
-  handleExistingUmaterialSubmit: function(umaterial){
-    //this is where i take all the old umaterials, add the new one to the array
-    // and reset the state to the new array
-    var umaterials = this.state.data
-    var newUmaterials = this.state.data.concat([umaterial])
-    this.setState({data: newUmaterials})
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      type: 'POST',
-      data: umaterial,
-      success: function(data){
-        this.setState({data: newUmaterials})
-      }.bind(this),
-      error: function(xhr, status, err){
-        console.error(this.props.url, status, err.toString())
-      }.bind(this)
-    })
-
-  },
+  // handleExistingUmaterialSubmit: function(umaterial){
+  //   //this is where i take all the old umaterials, add the new one to the array
+  //   // and reset the state to the new array
+  //   var umaterials = this.state.data
+  //   var newUmaterials = this.state.data.concat([umaterial])
+  //   this.setState({data: newUmaterials})
+  //   $.ajax({
+  //     url: this.props.url,
+  //     dataType: 'json',
+  //     type: 'POST',
+  //     data: umaterial,
+  //     success: function(data){
+  //       this.setState({data: newUmaterials})
+  //     }.bind(this),
+  //     error: function(xhr, status, err){
+  //       console.error(this.props.url, status, err.toString())
+  //     }.bind(this)
+  //   })
+  //
+  // },
   handleDelete: function(umaterial){
     var umaterials = this.state.data
 
@@ -82,9 +82,16 @@ var UmaterialBox = React.createClass({
     }.bind(this))
     return (
       <div className="materialsBox">
-        {umaterialNode}
-        <p></p>
-        <UmaterialForm onExistingUmaterialSubmit={this.handleExistingUmaterialSubmit} onUmaterialSubmit={this.handleUmaterialSubmit}/>
+      <div id="materialCont">
+
+      </div>
+          <ul id="toolbelt" className="side-nav fixed">
+            <UmaterialForm onExistingUmaterialSubmit={this.handleExistingUmaterialSubmit} onUmaterialSubmit={this.handleUmaterialSubmit}/>
+
+            {umaterialNode}
+          </ul>
+          <a href="#" data-activates="toolbelt" className="button-collapse"><i className="mdi-navigation-menu"></i></a>
+
       </div>
     )
   }

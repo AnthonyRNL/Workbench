@@ -51,12 +51,12 @@ var UserProjectMaterials = React.createClass({
       })
     return (
       <div className="uPmaterials">
-        Needed Materials:
+        <div className="bold">Needed Materials:</div>
         <div className="mNeeded">
           {needNode}
         </div>
         <p></p>
-        Owned Materials:
+        <div className="bold">Owned Materials:</div>
         <div createClass="mOwned">
           {ownNode}
         </div>

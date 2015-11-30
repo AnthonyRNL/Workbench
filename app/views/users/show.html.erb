@@ -1,9 +1,4 @@
   <body>
-      <h1> <%= @user.name %> </h1>
-      <div>
-        this will show a bunch of <%= @user.name %>'s stuff
-      </div>
-      <p></p>
       <div id="container"></div>
       <div id="projects"></div>
   </body>
@@ -17,7 +12,7 @@
     )
 
     ReactDOM.render(
-      React.createElement(UserProjects,{url: "/api/v1/users/<%=@user.id%>/user_projects", user_id: <%=@user.id%>}),
+      React.createElement(UserProjects,{url: "/api/v1/users/<%=@user.id%>/user_projects", username: "<%=@user.name%>", user_id: <%=@user.id%>}),
       document.getElementById("projects")
     )
   </script>

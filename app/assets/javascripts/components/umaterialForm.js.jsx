@@ -17,14 +17,13 @@ var UmaterialForm = React.createClass({
   handleExistingSubmit: function(e){
     e.preventDefault()
     var mAmount = parseInt(this.refs.mAmount.value.trim())
-    var mId = parseInt(this.refs.mId.value.trim())
+    var mId = this.refs.mId.value.trim()
     var mUnit = this.refs.mUnit.value.trim()
     var mName = this.refs.mName.value.trim()
-
-    if(!mAmount || !mId){
+    if(!mAmount || !mName){
       return
     }
-    this.props.onExistingUmaterialSubmit({material_id: mId, amount: mAmount, name: mName, unit: mUnit})
+    this.props.onUmaterialSubmit({material_id: mId, amount: mAmount, name: mName, unit: mUnit})
     return
   },
   otherButt: function(e){
@@ -54,7 +53,7 @@ var UmaterialForm = React.createClass({
     this.autocompleteMList()
   },
   render: function(){
-    $(".uOtherForm").css("display", "none")
+    $("#searchM").css("display", "none")
     $( "#mName" ).autocomplete({
       minLength: 0,
       source: this.state.data,
@@ -72,32 +71,24 @@ var UmaterialForm = React.createClass({
     return (
 
       <div className="uMaterialForm">
-        <div className="materialExist">
-          <div className="row">
-            <form className="col s12" id="searchM" onSubmit={this.handleExistingSubmit}>
-              <div className="row">
-                  <div className="input-field col s6">
-                    <input className="col s12" id="mName" type="search" ref="mName"/>
-                    <label htmlFor="mName"><i className="material-icons">search</i> Search Materials</label>
-                  </div>
-                  <div className="input-field col s12">
-                    <input className="col s6" id="mAmount" type="text" placeholder="Enter Amount" ref="mAmount"/>
-                  </div>
-                  <input id="mUnit" type="hidden" ref="mUnit"/>
-                  <input id="mId" type="hidden" ref="mId"/>
-                </div>
-              </form>
-              <button type="submit" form="searchM">Add to your materials</button>
+        <div className="row">
+          <a id="addUmaterialButt" className="waves-effect waves-light btn">Add Materials</a>
+          <form className="col s12" id="searchM" onSubmit={this.handleExistingSubmit}>
+            <div className="row">
+              <div className="input-field">
+                <input id="mName" type="search" ref="mName" placeholder="Name"/>
+              </div>
+              <div className="input-field">
+                <input id="mUnit" type="text" ref="mUnit" placeholder="Units"/>
+              </div>
+              <div className="input-field">
+                <input id="mAmount" type="text" placeholder="Enter Amount" ref="mAmount"/>
+              </div>
+              <input id="mId" type="hidden" ref="mId"/>
             </div>
-          <button className="other" onClick={this.otherButt}> Other Material </button>
+            <button className="btn-floating waves-light waves-effect blue-grey" type="submit"><i className="material-icons">add</i></button>
+          </form>
         </div>
-        <form className="uOtherForm" onSubmit={this.handleSubmit} >
-          <input type="text" placeholder="New Material" ref="name"/>
-          <input type="text" placeholder="Unit" ref="unit"/>
-          <input type="number" placeholder="Amount" ref="amount"/>
-          <br></br>
-          <input type="submit" value="Enter New Material" />
-        </form>
       </div>
     )
   }

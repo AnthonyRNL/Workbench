@@ -5,6 +5,13 @@ $(document).ready(function() {
     full_width: false,
     transition:800,
   })
+  $(".button-collapse").sideNav();
+
+  $("#addUmaterialButt").on("click", function(e){
+    $("#searchM").slideToggle()
+  })
+
+  //making carousel modal
 
   $("#rightArrow").on("click", function(e){
     toggleSlide(true)
@@ -45,6 +52,8 @@ $(document).ready(function() {
     if(num == length - 1) return 0;
     else return num + 1
   }
+
+
 
 
 });

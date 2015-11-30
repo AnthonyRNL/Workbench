@@ -8,12 +8,12 @@ var UmaterialsList = React.createClass({
   },
   render: function(){
     return (
-      <div className="myMaterials">
+      <li className="myMaterials">
         <div className="umaterialname"><b>{this.props.name}</b></div>
-        <button onClick={this.deleteThis}>Delete</button>
         <Umaterial amount={this.props.amount} unit={this.props.unit}/>
+        <button className="btn-floating waves-effect waves-light blue-grey" onClick={this.deleteThis}><i className="material-icons">delete</i></button>
         <p></p>
-      </div>
+      </li>
     )
   }
 })

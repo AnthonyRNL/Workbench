@@ -17,14 +17,11 @@ class Api::V1::UmaterialsController < ApplicationController
 
   def create
     #add to the params here, especially the material params
-    if !params[:material_id]
+    if params[:material_id] == ""
       material = Material.create(material_params)
       params[:material_id] = material.id
     end
     umaterial = Umaterial.create(umaterial_params)
-    umaterial.name = x.material.name
-    umaterial.unit = x.material.unit
-    umaterial.perishable = x.material.perishable
 
     render json: umaterial
   end

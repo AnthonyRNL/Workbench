@@ -32,6 +32,35 @@
   height:auto;
 }
 
+#dropdownNav {
+  z-index: 3;
+}
+
+nav {
+  /*position:fixed;*/
+  /*margin-top: -15px;*/
+}
+
+  #projects, footer {
+    padding-left: 240px;
+    padding-top: 25px;
+  }
+
+  @media only screen and (max-width : 992px) {
+    #projects, #materialCont, footer {
+      padding-left: 0;
+    }
+  }
+
+#toolbelt {
+  margin-top: 64px;
+  z-index: 1;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 .proj {
   max-width: 250px;
   height: 400px;
