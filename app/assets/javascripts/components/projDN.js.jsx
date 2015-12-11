@@ -42,6 +42,9 @@ var ProjectDescName = React.createClass({
       }.bind(this)
     })
   },
+  showSteps: function(){
+
+  },
   addToUser: function(){
     if($(ReactDOM.findDOMNode(this)).find(".notAdded").length > 0){
       $.ajax({
@@ -60,6 +63,7 @@ var ProjectDescName = React.createClass({
 
   },
   render: function(){
+    var modalID = "modal" + this.props.project_id
     var materialNodes = this.state.materials.map(function(x, i){
       return (
           <ProjMaterials material={x} key={i} />
@@ -70,10 +74,19 @@ var ProjectDescName = React.createClass({
         <div className="card-image waves-effect waves-block waves-light">
           <img className="activator projcard center-align" src={this.props.image}/>
         </div>
-        <div className="card-content">
+        <div className="card-content container">
           <span className="card-title activator grey-text text-darken-4">{this.props.name}<i className="material-icons right">more_vert</i></span>
           <p></p>
           <button className={this.state.addButtonClass} onClick={this.addToUser}>{this.state.addedButtonText}</button>
+          <a href={"#" +modalID} className="modal-trigger waves-effect waves-light btn blue-grey darken-2" >Steps</a>
+          <div id={modalID} className="modal">
+            <div className="modal-content">
+              <h4>Helooooo</h4>
+            </div>
+            <div className="modal-footer">
+              <a href="#!" className=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+          </div>
         </div>
 
         <div className="card-reveal">

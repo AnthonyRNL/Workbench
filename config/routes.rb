@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :projects do
         resources :pmaterials
+        resources :steps
         resources :user_projects
       end
       resources :users do

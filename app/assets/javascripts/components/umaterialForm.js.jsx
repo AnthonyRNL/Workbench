@@ -24,6 +24,8 @@ var UmaterialForm = React.createClass({
       return
     }
     this.props.onUmaterialSubmit({material_id: mId, amount: mAmount, name: mName, unit: mUnit})
+    this.forceUpdate()
+
     return
   },
   otherButt: function(e){

@@ -73,8 +73,8 @@ var ProjectForm = React.createClass({
     }.bind(this))
     return (
         <div className="projModal">
-          <a href="#modal1" className="modal-trigger btn-floating btn-large waves-effect waves-light blue-grey"><i className="material-icons">add</i></a>
-          <div id="modal1" className="modal modal-fixed-footer">
+          <a href="#modalPF" className="modal-trigger btn-floating btn-large waves-effect waves-light blue-grey"><i className="material-icons">add</i></a>
+          <div id="modalPF" className="modal modal-fixed-footer">
             <div className="modal-content row">
               <h4 className="center-align">Add a new project</h4>
               <div id="leftArrow">

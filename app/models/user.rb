@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :avatar
-  mount_uploader :avatar, AvatarUploader
+  # mount_uploader :avatar, AvatarUploader
   has_many :user_projects
   has_many :projects, through: :user_projects
   has_many :umaterials
